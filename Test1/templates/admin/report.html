@@ -1,0 +1,6 @@
+{% extends "admin/layout.html" %}
+{% block content %}
+<h4>Báo Cáo Lương</h4>
+<p>Tổng lương tháng hiện tại: <b class="text-success">{{ tong_luong }}</b></p>
+<a href="{{ url_for('export_salary_pdf') }}" class="btn btn-outline-primary"><i class="fas fa-file-pdf"></i> Xuất Phiếu Lương PDF</a>
+{% endblock %}
