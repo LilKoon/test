@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+
+{% block title %}Thông Tin Cá Nhân{% endblock %}
+
+{% block content %}
+    <h1>Thông Tin Cá Nhân</h1>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {% if employee %}
+    <form action="{{ url_for('trang_nhan_vien') }}" method="POST" class="profile-view-form">
+        
+        <div class="form-group-inline static-field">
+            <label>Mã nhân viên:</label>
+            <span class="field-text">{{ employee.MaNV }}</span>
+        </div>
+        <div class="form-group-inline static-field">
+            <label>Họ và tên:</label>
+            <span class="field-text">{{ employee.HoTen }}</span>
+        </div>
+        <div class="form-group-inline static-field">
+            <label>Năm sinh:</label>
+            <span class="field-text">{{ employee.NamSinh }}</span>
+        </div>
+       
+
+        <hr class="form-divider">
+
+        <div class="form-group-inline editable-field">
+            <label>Địa chỉ:</label>
+            
+            <div class="display-mode">
+                <span class="field-text" id="text-dia_chi">{{ employee.DiaChi or 'Chưa cập nhật' }}</span>
+                <button type="button" class="btn-edit" onclick="toggleEdit('dia_chi')">
+                    <i class="fas fa-pencil-alt"></i> Chỉnh sửa
+                </button>
+            </div>
+            
+            <div class="edit-mode" id="edit-dia_chi" style="display: none;">
+                <input type="text" name="dia_chi" class="form-control" 
+                       value="{{ employee.DiaChi or '' }}">
+                <button type="submit" class="btn btn-save">
+                    <i class="fas fa-check"></i> Xác nhận
+                </button>
+                <button type="button" class="btn btn-cancel" onclick="toggleEdit('dia_chi')">
+                    <i class="fas fa-times"></i> Hủy
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group-inline editable-field">
+            <label>Số điện thoại:</label>
+            
+            <div class="display-mode">
+                <span class="field-text" id="text-sdt">{{ employee.SoDienThoai or 'Chưa cập nhật' }}</span>
+                <button type="button" class="btn-edit" onclick="toggleEdit('sdt')">
+                    <i class="fas fa-pencil-alt"></i> Chỉnh sửa
+                </button>
+            </div>
+            
+            <div class="edit-mode" id="edit-sdt" style="display: none;">
+                <input type="text" name="sdt" class="form-control" 
+                       value="{{ employee.SoDienThoai or '' }}">
+                <button type="submit" class="btn btn-save">
+                    <i class="fas fa-check"></i> Xác nhận
+                </button>
+                <button type="button" class="btn btn-cancel" onclick="toggleEdit('sdt')">
+                    <i class="fas fa-times"></i> Hủy
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group-inline editable-field">
+            <label>Email:</label>
+            
+            <div class="display-mode">
+                <span class="field-text" id="text-email">{{ employee.email or 'Chưa cập nhật' }}</span>
+                <button type="button" class="btn-edit" onclick="toggleEdit('email')">
+                    <i class="fas fa-pencil-alt"></i> Chỉnh sửa
+                </button>
+            </div>
+            
+            <div class="edit-mode" id="edit-email" style="display: none;">
+                <input type="email" name="email" class="form-control" 
+                       value="{{ employee.email or '' }}">
+                <button type="submit" class="btn btn-save">
+                    <i class="fas fa-check"></i> Xác nhận
+                </button>
+                <button type="button" class="btn btn-cancel" onclick="toggleEdit('email')">
+                    <i class="fas fa-times"></i> Hủy
+                </button>
+            </div>
+        </div>
+        
+        <input type="hidden" name="dia_chi" value="{{ employee.DiaChi or '' }}">
+        <input type="hidden" name="sdt" value="{{ employee.SoDienThoai or '' }}">
+        <input type="hidden" name="email" value="{{ employee.email or '' }}">
+
+    </form>
+
+    {% else %}
+        <p class="alert alert-danger">Không thể tải thông tin nhân viên.</p>
+    {% endif %}
+
+
+    <script>
+        function toggleEdit(fieldName) {
+            // Lấy 2 div (display và edit) của trường đó
+            const displayMode = document.getElementById('edit-' + fieldName).previousElementSibling;
+            const editMode = document.getElementById('edit-' + fieldName);
+
+            // Ẩn/hiện
+            if (editMode.style.display === 'none') {
+                displayMode.style.display = 'none';
+                editMode.style.display = 'flex'; // 'flex' để các nút nằm ngang
+            } else {
+                displayMode.style.display = 'flex';
+                editMode.style.display = 'none';
+                
+                // Hủy bỏ: reset giá trị input về giá trị ban đầu (lấy từ text)
+                const originalText = document.getElementById('text-' + fieldName).innerText;
+                if (originalText !== 'Chưa cập nhật') {
+                    editMode.querySelector('input').value = originalText;
+                } else {
+                    editMode.querySelector('input').value = '';
+                }
+            }
+        }
+    </script>
+
+{% endblock %}
