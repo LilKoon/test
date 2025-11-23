@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Nhân Viên</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 70px;
+            background: #1e1e1e;
+            color: white;
+            border-right: 4px solid black;
+            padding: 20px 10px;
+            transition: 0.3s ease;
+            overflow: hidden;
+        }
+
+        .sidebar:hover {
+            width: 250px;
+        }
+
+        .sidebar-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            opacity: 0;
+            transition: 0.3s;
+            padding-left: 10px;
+        }
+
+        .sidebar:hover .sidebar-title {
+            opacity: 1;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 14px;
+            margin-bottom: 14px;
+            background: #2b2b2b;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 17px;
+            transition: 0.25s ease;
+        }
+
+        .menu-item:hover {
+            background: #3c3c3c;
+            transform: translateX(5px);
+        }
+
+        .menu-text {
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .sidebar:hover .menu-text {
+            opacity: 1;
+        }
+
+        .menu-item i {
+            font-size: 20px;
+        }
+
+        /* MAIN CONTENT */
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-header {
+            height: 60px;
+            background: white;
+            border-bottom: 2px solid #ddd;
+            display: flex;
+            align-items: center;
+            padding-left: 25px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .content-main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- SIDEBAR NHÂN VIÊN -->
+        <div class="sidebar">
+            <div class="sidebar-title">Nhân viên</div>
+
+            <div class="menu-item">
+                <i class="fa fa-user"></i>
+                <span class="menu-text">Quản lý tài khoản</span>
+            </div>
+
+            <div class="menu-item">
+                <i class="fa fa-dollar-sign"></i>
+                <span class="menu-text">Xem bảng lương</span>
+            </div>
+
+            <div class="menu-item">
+                <i class="fa fa-sign-out-alt"></i>
+                <span class="menu-text">Đăng xuất</span>
+            </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content-area">
+
+            <div class="content-header">
+                Trang nhân viên
+            </div>
+
+            <div class="content-main">
+                Chào mừng, Nhân viên!
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
