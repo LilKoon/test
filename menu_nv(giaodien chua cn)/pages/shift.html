@@ -1,0 +1,28 @@
+<div class="card">
+    <h2>Ca làm việc</h2>
+    <p style="color:#6b7280;">Click vào ngày để xem chi tiết.</p>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin:20px 0;">
+        <button class="btn" style="background:#6b7280;" onclick="prevMonth()">← Tháng trước</button>
+        <h2 id="calendarMonth" style="margin:0;"></h2>
+        <button class="btn" onclick="nextMonth()">Tháng sau →</button>
+    </div>
+
+    <table id="calendarTable" style="width:100%; text-align:center;">
+        <thead>
+            <tr><th>CN</th><th>T2</th><th>T3</th><th>T4</th><th>T5</th><th>T6</th><th>T7</th></tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div id="shiftPopup">
+    <div class="popup-box">
+        <h3>Chi tiết ca làm</h3>
+        <p><b>Ngày:</b> <span id="popupDate"></span></p>
+        <p><b>Ca:</b> <span id="popupShift"></span></p>
+        <p><b>Ghi chú:</b> <span id="popupNote"></span></p>
+
+        <button class="btn" style="width:100%; background:#6b7280;" onclick="closePopup()">Đóng</button>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class='card' id='viewMode'>
+    <h2>Thông tin tài khoản</h2>
+    <p><b>Họ tên:</b> Nguyễn Văn A</p>
+    <p><b>Email:</b> nguyenvana@example.com</p>
+    <p><b>Số điện thoại:</b> 0123456789</p>
+    <p><b>Mật khẩu:</b> ******</p>
+    <button class="btn" onclick="editAccount()">Sửa thông tin</button>
+</div>
+
+<div class='card' id='editMode' style="display:none;">
+    <h2>Chỉnh sửa tài khoản</h2>
+    <label>Họ tên</label>
+    <input type="text" value="Nguyễn Văn A">
+
+    <label>Email</label>
+    <input type="email" value="nguyenvana@example.com">
+
+    <label>Số điện thoại</label>
+    <input type="text" value="0123456789">
+
+    <label>Mật khẩu</label>
+    <input type="password" value="123456">
+
+    <button class="btn" onclick="saveAccount()">Lưu</button>
+    <button class="btn" style="background:#6b7280;" onclick="cancelEdit()">Hủy</button>
+</div>

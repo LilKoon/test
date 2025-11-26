@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<title>Nhân viên - Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-title">Nhân viên</div>
+
+        <div class="menu">
+            <div class="menu-item active" onclick="setActive(this); loadPage('home')">
+                <i class="fa fa-house"></i> Trang chủ
+            </div>
+
+            <div class="menu-item" onclick="setActive(this); loadPage('account')">
+                <i class="fa fa-user"></i> Quản lý tài khoản
+            </div>
+
+            <div class="menu-item" onclick="setActive(this); loadPage('salary')">
+                <i class="fa fa-wallet"></i> Xem bảng lương
+            </div>
+
+            <div class="menu-item" onclick="setActive(this); loadPage('shift')">
+                <i class="fa fa-calendar-check"></i> Ca làm việc
+            </div>
+
+            <div class="menu-item" onclick="setActive(this); loadPage('logout')">
+                <i class="fa fa-sign-out-alt"></i> Đăng xuất
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+        <div class="main-header" id="headerTitle">Trang chủ</div>
+        <div class="content" id="contentBox">
+            <!-- Nội dung sẽ load từ pages/*.html -->
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
